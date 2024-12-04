@@ -47,8 +47,12 @@ Hand: A class that determines the total value of cards that the player is curren
 
 ## ATP
 
-| Step                 |Procedure             |Expected Results                   |
-|----------------------|:--------------------:|----------------------------------:|
-|  1                   | Run Counter Program  |GUI window appears with count = 0  |
-|  2                   | click count button   | display changes to count = 1      |
-etc...
+| Step                 |Procedure                                        |Expected Results                                                        |
+|----------------------|:-----------------------------------------------:|-----------------------------------------------------------------------:|
+|  1                   | Type template_final-project master/src          | Black Jack game appears                                                |
+|  2                   | Click deal button                               | Players and CPU are dealt 2 cards                                      |
+|  3                   | Click hit button                                | Player is hit with a card and loses if user goes over but stays if not.|
+|  4                   | Click stand button                              | Player does not draw and wins/loses depending on CPU                   |
+|  5                   | Check that card values are being added properly | Proper winner will receieve a win at the end of a match                |
+|  6                   | Start game and play until either lose/win.      | Lose/win screen pops up after losing/winning.                          |
+

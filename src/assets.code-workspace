@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../assets"
+		},
+		{
+			"path": "../etc"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {}
+}

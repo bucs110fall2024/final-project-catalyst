@@ -3,19 +3,21 @@ import pygame
 DISPLAY_WIDTH = 900
 DISPLAY_HEIGHT = 700
 
-BACKGROUND_COLOR = (34,139,34)
+BACKGROUND_COLOR = (144, 238, 144)
 GREY = (220,220,220)
 BLACK = (0,0,0)
 GREEN = (0, 200, 0)
 RED = (255,0,0)
-LIGHT_SLAT = (119,136,153)
-DARK_SLAT = (47, 79, 79)
+DARK_GREEN = (34,139,34)
 DARK_RED = (255, 0, 0)
+DARK_SLAT = (47, 79, 79)
+YELLOW = (255, 255, 0)
+ORANGE = (255, 165, 0)
 pygame.init()
 font = pygame.font.SysFont("Arial", 20)
-textfont = pygame.font.SysFont('Comic Sans MS', 35)
-game_end = pygame.font.SysFont('dejavusans', 100)
-blackjack = pygame.font.SysFont('roboto', 70)
+textfont = pygame.font.SysFont('Times New Roman', 35)
+game_end = pygame.font.SysFont('Arial', 100)
+blackjack = pygame.font.SysFont('Arial', 70)
 
 
 SUITS = ['C', 'S', 'H', 'D']

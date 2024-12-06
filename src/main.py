@@ -11,7 +11,7 @@ gameDisplay = pygame.display.set_mode((DISPLAY_WIDTH, DISPLAY_HEIGHT))
 
 pygame.display.set_caption('BlackJack')
 gameDisplay.fill(BACKGROUND_COLOR)
-pygame.draw.rect(gameDisplay, GREY, pygame.Rect(0, 0, 250, 700))
+pygame.draw.rect(gameDisplay, DARK_GREEN, pygame.Rect(0, 0, 900, 100))
 
 #text object render
 def text_objects(text, font):
@@ -106,14 +106,16 @@ class Play:
         player_card = pygame.image.load('assets/' + self.player.card_img[0] + '.png').convert()
         player_card_2 = pygame.image.load('assets/' + self.player.card_img[1] + '.png').convert()
 
-        
-        game_texts("Dealer's hand is:", 500, 150)
+        pygame.draw.rect(gameDisplay, GREY, pygame.Rect(400, 125, 250, 50))
+        pygame.display.update()
+        game_texts("Dealer's hand is:", 525, 150)
 
         gameDisplay.blit(dealer_card, (400, 200))
         gameDisplay.blit(dealer_card_2, (550, 200))
 
-        game_texts("Your's hand is:", 500, 400)
-        
+        pygame.draw.rect(gameDisplay, GREY, pygame.Rect(290, 380, 220, 50))
+        game_texts("Your hand is:", 400, 400)
+
         gameDisplay.blit(player_card, (300, 450))
         gameDisplay.blit(player_card_2, (410, 450))
         self.blackjack()
@@ -157,11 +159,11 @@ class Play:
         self.dealer.calc_hand()
         self.player.calc_hand()
         if self.player.value > self.dealer.value:
-            game_finish("You Won!", 500, 250, GREEN)
+            game_finish("You Won BlackJack!", 500, 250, GREEN)
             time.sleep(4)
             self.play_or_exit()
         elif self.player.value < self.dealer.value:
-            game_finish("Dealer Wins!", 500, 250, RED)
+            game_finish("Dealer Wins BlackJack!", 500, 250, RED)
             time.sleep(4)
             self.play_or_exit()
         else:
@@ -174,7 +176,9 @@ class Play:
         sys.exit()
     
     def play_or_exit(self):
-        game_texts("Play again press Deal!", 200, 80)
+        play_again_text = "To play again press Deal!"
+        play_again_text.replace("\033[1;32;40m Bright Green \n")
+        game_texts(play_again_text, 200, 80)
         time.sleep(3)
         self.player.value = 0
         self.dealer.value = 0
@@ -183,7 +187,7 @@ class Play:
         self.player = Hand()
         self.deck.shuffle()
         gameDisplay.fill(BACKGROUND_COLOR)
-        pygame.draw.rect(gameDisplay, GREY, pygame.Rect(0, 0, 250, 700))
+        pygame.draw.rect(gameDisplay, DARK_GREEN, pygame.Rect(0, 0, 900, 100))
         pygame.display.update()
 
         
@@ -196,9 +200,9 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-        button("Deal", 30, 100, 150, 50, LIGHT_SLAT, DARK_SLAT, play_blackjack.deal)
-        button("Hit", 30, 200, 150, 50, LIGHT_SLAT, DARK_SLAT, play_blackjack.hit)
-        button("Stand", 30, 300, 150, 50, LIGHT_SLAT, DARK_SLAT, play_blackjack.stand)
-        button("EXIT", 30, 500, 150, 50, LIGHT_SLAT, DARK_RED, play_blackjack.exit)
+        button("Deal", 625, 20, 150, 50, GREEN, DARK_SLAT, play_blackjack.deal)
+        button("Hit", 450, 20, 150, 50, ORANGE, DARK_SLAT, play_blackjack.hit)
+        button("Stand", 275, 20, 150, 50, YELLOW, DARK_SLAT, play_blackjack.stand)
+        button("EXIT", 100, 20, 150, 50, RED, DARK_RED, play_blackjack.exit)
     
     pygame.display.flip()
